@@ -18,3 +18,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'condominio'], function (){
+  Route::get('listar', 'CondominioController@listar');
+  Route::get('criar', 'CondominioController@criar');
+  Route::get('{id}/editar', 'CondominioController@editar');
+  Route::get('{id}/remover', 'CondominioController@remover');
+  Route::post('salvar', 'CondominioController@salvar');
+  });
+
+  Route::group(['prefix' => 'unidade'], function (){
+  Route::get('listar', 'UnidadeController@listar');
+  Route::get('criar', 'UnidadeController@criar');
+  Route::get('{id}/editar', 'UnidadeController@editar');
+  Route::get('{id}/remover', 'UnidadeController@remover');
+  Route::post('salvar', 'UnidadeController@salvar');
+  });
